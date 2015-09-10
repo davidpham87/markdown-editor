@@ -7,19 +7,26 @@
   <script src="highlight.pack.js"></script>
   <script src="emojify.js"></script>
   <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/lib/util/dialog.js"></script>
+  <script src="codemirror/lib/util/search.js"></script>
+  <script src="codemirror/lib/util/searchcursor.js"></script>
   <script src="codemirror/overlay.js"></script>
   <script src="codemirror/xml/xml.js"></script>
   <script src="codemirror/markdown/markdown.js"></script>
   <script src="codemirror/gfm/gfm.js"></script>
   <script src="codemirror/javascript/javascript.js"></script>
+  <script src="codemirror/python/python.js"></script>
   <script src="codemirror/css/css.js"></script>
   <script src="codemirror/htmlmixed/htmlmixed.js"></script>
   <script src="codemirror/lib/util/continuelist.js"></script>
   <script src="rawinflate.js"></script>
   <script src="rawdeflate.js"></script>
+  <link rel="stylesheet" href="default.css">
   <link rel="stylesheet" href="base16-light.css">
   <link rel="stylesheet" href="codemirror/lib/codemirror.css">
-  <link rel="stylesheet" href="default.css">
+  <link rel="stylesheet" href="codemirror/lib/util/dialog.css">
+  <link rel="stylesheet" href="codemirror/css/zenburn.css">
+
   <style>
     body {margin: 0;}
 
@@ -331,7 +338,8 @@ the inspiration to this, and some handy implementation hints, came.
       lineNumbers: false,
       matchBrackets: true,
       lineWrapping: true,
-      theme: 'base16-light',
+      theme: 'zenburn',
+      keyMap: 'emacs',
       extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
     });
 
@@ -384,8 +392,8 @@ the inspiration to this, and some handy implementation hints, came.
       }else{
         url = URL.createObjectURL(blob);
         var link = document.createElement("a");
-        link.setAttribute("href",url);
-        link.setAttribute("download",name);
+        link.setAttribute("href", url);
+        link.setAttribute("download", name);
         var event = document.createEvent('MouseEvents');
         event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
         link.dispatchEvent(event);
